@@ -2,15 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>3-hexo使用说明 | Hexo</title>
+  <title>3-hexo使用说明 | kvipl</title>
   <meta name="keywords" content=" hexo , 3-hexo ">
-  <meta name="description" content="3-hexo使用说明 | Hexo">
+  <meta name="description" content="3-hexo使用说明 | kvipl">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="404">
 <meta property="og:url" content="http://yoursite.com/404.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="kvipl">
 <meta property="og:description" content="页面未找到！很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-15T04:38:18.000Z">
@@ -459,16 +459,30 @@
 <li>替换 <code>source/img/avatar.jpg</code> 图片。</li>
 <li>修改 <code>_config.yml</code> 中头像的配置记录</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 你的头像url</span><br><span class="line">avatar: /img/avatar.jpg</span><br><span class="line">favicon: /img/avatar.jpg</span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml"># 你的头像url
+avatar: /img/avatar.jpg
+favicon: /img/avatar.jpg</code></pre>
 <h2 id="设置链接图标"><a href="#设置链接图标" class="headerlink" title="设置链接图标"></a>设置链接图标</h2><p>如下，如果没有连接，则不展示图标。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#链接图标，链接为空则不显示</span><br><span class="line">link:</span><br><span class="line">  rss: /atom.xml</span><br><span class="line">  github: https://github.com/yelog</span><br><span class="line">  facebook: https://www.facebook.com/faker.tops</span><br><span class="line">  twitter:</span><br><span class="line">  linkedin:</span><br><span class="line">  instagram:</span><br><span class="line">  reddit: https://www.reddit.com/user/yelog/</span><br><span class="line">  weibo: http://weibo.com/u/2307534817</span><br><span class="line">  email: jaytp@qq.com</span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">#链接图标，链接为空则不显示
+link:
+  rss: /atom.xml
+  github: https://github.com/yelog
+  facebook: https://www.facebook.com/faker.tops
+  twitter:
+  linkedin:
+  instagram:
+  reddit: https://www.reddit.com/user/yelog/
+  weibo: http://weibo.com/u/2307534817
+  email: jaytp@qq.com</code></pre>
 <h2 id="开启关于页面"><a href="#开启关于页面" class="headerlink" title="开启关于页面"></a>开启<code>关于</code>页面</h2><ol>
-<li>在 <code>hexo</code> 根目录执行以下，创建 <code>关于</code> 页面<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"about"</span></span><br></pre></td></tr></table></figure></li>
+<li>在 <code>hexo</code> 根目录执行以下，创建 <code>关于</code> 页面<pre><code class="bash">hexo new page &quot;about&quot;</code></pre>
+</li>
 <li>位置： <code>source/aoubt/index.md</code> ，根据需要进行编辑。</li>
-<li>在主题中开启显示：修改主题根目录 <code>_config.yml</code> 中的 <code>about</code> 的 <code>on</code> 为 <code>true</code>，如下所示<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">about:</span>  <span class="comment"># '关于' 按钮</span></span><br><span class="line">    <span class="attr">on:</span> <span class="literal">true</span> <span class="comment"># 是否显示</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/about</span>  <span class="comment"># 跳转链接</span></span><br><span class="line">    <span class="attr">type:</span> <span class="number">1</span> <span class="comment"># 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页</span></span><br></pre></td></tr></table></figure>
-
+<li>在主题中开启显示：修改主题根目录 <code>_config.yml</code> 中的 <code>about</code> 的 <code>on</code> 为 <code>true</code>，如下所示<pre><code class="yml">menu:
+about:  # &#39;关于&#39; 按钮
+ on: true # 是否显示
+ url: /about  # 跳转链接
+ type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页</code></pre>
 </li>
 </ol>
 <h2 id="添加音乐插件"><a href="#添加音乐插件" class="headerlink" title="添加音乐插件"></a>添加音乐插件</h2>
@@ -485,56 +499,107 @@
 <li>重启 <code>hexo</code>。</li>
 </ol>
 <h3 id="meta区显示评论数"><a href="#meta区显示评论数" class="headerlink" title="meta区显示评论数"></a>meta区显示评论数</h3><p>开启设置 <code>_config.yml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">comment_count: true</span><br><span class="line"># 文章标题下方显示评论数</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">comment_count: true
+# 文章标题下方显示评论数</code></pre>
 <p><img src="http://img.saodiyang.com/FlDHXpVnJ-ECFCehRBoKkQMlqj_R.png" alt="开启效果"></p>
 <h3 id="评论区预加载"><a href="#评论区预加载" class="headerlink" title="评论区预加载"></a>评论区预加载</h3><p>开启设置 <code>_config.yml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preload_comment: false</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">preload_comment: false</code></pre>
 <ol>
 <li>false: 当点击评论条等区域时再加载评论模块</li>
 <li>true: 页面加载时加载评论区</li>
 </ol>
 <p><img src="http://img.saodiyang.com/FrYn2xsPMLBizQZ_p_mCa-hJYTG_.png" alt="关闭效果"></p>
 <h2 id="样式设置"><a href="#样式设置" class="headerlink" title="样式设置"></a>样式设置</h2><h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>首先要关闭hexo根目录下<code>_config.yml</code>中的高亮设置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">highlight:</span><br><span class="line">  enable: false</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">highlight:
+  enable: false</code></pre>
 <p>配置主题下<code>_config.yml</code>中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">highlight:</span><br><span class="line">  on: true # true开启代码高亮</span><br><span class="line">  lineNum: true # true显示行号</span><br><span class="line">  theme: darcula</span><br><span class="line"># 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/</span><br><span class="line"># 支持主题：</span><br><span class="line"># sublime : 参考sublime的高亮主题</span><br><span class="line"># darcula : 参考idea中的darcula的主题</span><br><span class="line"># atom-dark : 参考Atom的dark主题</span><br><span class="line"># atom-light : 参考Atom的light主题</span><br><span class="line"># github : 参考GitHub版的高亮主题</span><br><span class="line"># github-gist : GitHub-Gist主题</span><br><span class="line"># brown-paper : 牛皮纸效果</span><br><span class="line"># gruvbox-light : gruvbox的light主题</span><br><span class="line"># gruvbox-dark ： gruvbox的dark主题</span><br><span class="line"># rainbow :</span><br><span class="line"># railscasts :</span><br><span class="line"># sunburst :</span><br><span class="line"># kimbie-dark :</span><br><span class="line"># kimbie-light :</span><br><span class="line"># school-book : 纸张效果</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">highlight:
+  on: true # true开启代码高亮
+  lineNum: true # true显示行号
+  theme: darcula
+# 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/
+# 支持主题：
+# sublime : 参考sublime的高亮主题
+# darcula : 参考idea中的darcula的主题
+# atom-dark : 参考Atom的dark主题
+# atom-light : 参考Atom的light主题
+# github : 参考GitHub版的高亮主题
+# github-gist : GitHub-Gist主题
+# brown-paper : 牛皮纸效果
+# gruvbox-light : gruvbox的light主题
+# gruvbox-dark ： gruvbox的dark主题
+# rainbow :
+# railscasts :
+# sunburst :
+# kimbie-dark :
+# kimbie-light :
+# school-book : 纸张效果</code></pre>
 <h3 id="MathJax数学公式"><a href="#MathJax数学公式" class="headerlink" title="MathJax数学公式"></a>MathJax数学公式</h3><p>修改 <code>_config.yml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># MathJax 数学公式支持</span><br><span class="line">mathjax:</span><br><span class="line">  on: true #是否启用</span><br><span class="line">  per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</span><br></pre></td></tr></table></figure>
+<pre><code class="xml"># MathJax 数学公式支持
+mathjax:
+  on: true #是否启用
+  per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</code></pre>
 <p>考虑到页面的加载速度，支持渲染单个页面。<br>设置 <code>per_page: false</code> ,在需要渲染的页面内 加入 <code>mathjax: true</code></p>
 <blockquote>
 <p><strong><code>注意:</code></strong><br>由于hexo的MarkDown渲染器与MathJax有冲突，可能会造成矩阵等使用不正常。所以在使用之前需要修改两个地方<br>编辑 <code>node_modules\marked\lib\marked.js</code> 脚本</p>
 </blockquote>
 <ol>
-<li>将451行 ，这一步取消了对 <code>\\,\{,\}</code> 的转义(escape)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</span>,</span><br><span class="line">改为</span><br><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()# +\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></li>
-<li>将459行，这一步取消了对斜体标记 <code>_</code> 的转义<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br><span class="line">改为</span><br><span class="line">em:<span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
-
+<li>将451行 ，这一步取消了对 <code>\\,\{,\}</code> 的转义(escape)<pre><code class="js">escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,
+改为
+escape: /^\\([`*\[\]()# +\-.!_&gt;])/,</code></pre>
+</li>
+<li>将459行，这一步取消了对斜体标记 <code>_</code> 的转义<pre><code class="js">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+改为
+em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre>
 </li>
 </ol>
 <h3 id="表格样式"><a href="#表格样式" class="headerlink" title="表格样式"></a>表格样式</h3><p>目前提供了3中样式，修改 <code>_config.yml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">table: green_title</span><br><span class="line"># table 的样式</span><br><span class="line"># 为空时类似github的table样式</span><br><span class="line"># green 绿色样式</span><br><span class="line"># green_title 头部为青色的table样式</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">table: green_title
+# table 的样式
+# 为空时类似github的table样式
+# green 绿色样式
+# green_title 头部为青色的table样式</code></pre>
 <h3 id="文章列表的hover样式"><a href="#文章列表的hover样式" class="headerlink" title="文章列表的hover样式"></a>文章列表的hover样式</h3><p>鼠标移入的背景色和文字颜色变动，设置 <code>_config.yml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#文章列表 鼠标移上去的样式, 为空时使用默认效果</span><br><span class="line">article_list:</span><br><span class="line">  hover:</span><br><span class="line">    background: '#e2e0e0'  # 背景色:提供几种：'#c1bfc1'  '#fbf4a8'</span><br><span class="line">    color:     # 文字颜色 提供几种：'#ffffff'</span><br><span class="line"># 注意：由于颜色如果包含#，使用单引号 ' 引起来</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">#文章列表 鼠标移上去的样式, 为空时使用默认效果
+article_list:
+  hover:
+    background: &#39;#e2e0e0&#39;  # 背景色:提供几种：&#39;#c1bfc1&#39;  &#39;#fbf4a8&#39;
+    color:     # 文字颜色 提供几种：&#39;#ffffff&#39;
+# 注意：由于颜色如果包含#，使用单引号 &#39; 引起来</code></pre>
 <h2 id="开启字数统计"><a href="#开启字数统计" class="headerlink" title="开启字数统计"></a>开启字数统计</h2><ol>
 <li>开启此功能需先安装插件，在 hexo根目录 执行 <code>npm i hexo-wordcount --save</code></li>
 <li>修改 <code>_config.yml</code></li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_count: true</span><br></pre></td></tr></table></figure>
-<h2 id="多作者模式"><a href="#多作者模式" class="headerlink" title="多作者模式"></a>多作者模式</h2><p>可查看这篇文章： </p>
-<h2 id="文章排序及置顶"><a href="#文章排序及置顶" class="headerlink" title="文章排序及置顶"></a>文章排序及置顶</h2><p>可查看这篇文章： </p>
+<pre><code class="xml">word_count: true</code></pre>
+<h2 id="多作者模式"><a href="#多作者模式" class="headerlink" title="多作者模式"></a>多作者模式</h2><p>可查看这篇文章： {% post_link 3-hexo-multiple-author %}</p>
+<h2 id="文章排序及置顶"><a href="#文章排序及置顶" class="headerlink" title="文章排序及置顶"></a>文章排序及置顶</h2><p>可查看这篇文章： {% post_link hexo-top-sort  %}</p>
 <h2 id="关于写文章"><a href="#关于写文章" class="headerlink" title="关于写文章"></a>关于写文章</h2><h3 id="如何写"><a href="#如何写" class="headerlink" title="如何写"></a>如何写</h3><p>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br><code>categories</code>:文集，为左侧列表<br><code>tags</code>:标签，通过#来筛选<br>例如 本篇文章的设置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 3-hexo使用说明</span><br><span class="line">date: 2017-03-23 15:13:47</span><br><span class="line">categories:</span><br><span class="line">- 工具</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 3-hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">---
+title: 3-hexo使用说明
+date: 2017-03-23 15:13:47
+categories:
+- 工具
+tags:
+- hexo
+- 3-hexo
+---</code></pre>
 <h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>1.设置模板，blog根目录 <code>scaffolds/post.md</code><br>加入categories,tags等，这样以后通过 <code>hexo new</code> 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">---
+title: {{ title }}
+date: {{ date }}
+categories:
+tags:
+---</code></pre>
 <h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><h3 id="快捷命令"><a href="#快捷命令" class="headerlink" title="快捷命令"></a>快捷命令</h3><p>其实就通过alias，触发一些命令的集合<br>在 <code>~/.bashrc</code> 文件中添加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> hs=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>  <span class="comment">#启动本地服务</span></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d'</span>  <span class="comment">#部署博客</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">alias hs=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#39;  #启动本地服务
+alias hd=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&#39;  #部署博客</code></pre>
 <p>甚至你也可以加入备份文章的命令，可以自由发挥。</p>
 <h3 id="博客备份（快捷命令升级版）"><a href="#博客备份（快捷命令升级版）" class="headerlink" title="博客备份（快捷命令升级版）"></a>博客备份（快捷命令升级版）</h3><p>为了保证我们写的文章不丢失、快速迁移博客，都需要备份我们的blog。</p>
 <ol>
 <li>博客根目录，执行 <code>git init</code> 创建 git 仓库。</li>
 <li>在 github（或其他托管平台、自建远程仓库等） 创建仓库并和本地仓库建立联系。</li>
-<li>在 <code>~/.bashrc</code> 文件中添加<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> hs=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m "update" &amp;&amp; git push -f'</span></span><br></pre></td></tr></table></figure>
-
+<li>在 <code>~/.bashrc</code> 文件中添加<pre><code class="bash">alias hs=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#39;
+alias hd=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m &quot;update&quot; &amp;&amp; git push -f&#39;</code></pre>
 </li>
 </ol>
 <p>这样，我们在执行 <code>hd</code> 进行部署时，就一同将博客进行备份了</p>
