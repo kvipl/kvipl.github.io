@@ -486,11 +486,13 @@ mathjax:
     on: true #是否启用
     per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</code></pre><p>考虑到页面的加载速度，支持渲染单个页面。<br>设置 per_page: false ,在需要渲染的页面内 加入 mathjax: true</p>
 <p>注意:<br>由于hexo的MarkDown渲染器与MathJax有冲突，可能会造成矩阵等使用不正常。所以在使用之前需要修改两个地方<br>编辑 node_modules\marked\lib\marked.js 脚本</p>
-<p>1.将451行 ，这一步取消了对 \,{,} 的转义(escape)<br>    escape: /^\([\<code>*{}\[\]()# +\-.!_&gt;])/,
-    改为
-    escape: /^\\([</code>*[]()# +-.!_&gt;])/,</p>
-<p>2.将459行，这一步取消了对斜体标记 _ 的转义<br>    em: /^\b_((?:[^<em>]|_</em>)+?)_\b|^*((?:**|[\s\S])+?)*(?!*)/,<br>    改为<br>    em:/^*((?:**|[\s\S])+?)*(?!*)/,</p>
-<p>表格样式<br>目前提供了3中样式，修改 _config.yml</p>
+<p>1.将451行 ，这一步取消了对 \,{,} 的转义(escape)</p>
+<pre><code>escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,
+改为
+escape: /^\\([`*\[\]()# +\-.!_&gt;])/,</code></pre><p>2.将459行，这一步取消了对斜体标记 _ 的转义</p>
+<pre><code>em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+改为
+em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre><p>表格样式<br>目前提供了3中样式，修改 _config.yml</p>
 <pre><code>table: green_title
 # table 的样式
 # 为空时类似github的table样式
@@ -501,8 +503,8 @@ article_list:
 hover:
     background: &apos;#e2e0e0&apos;  # 背景色:提供几种：&apos;#c1bfc1&apos;  &apos;#fbf4a8&apos;
     color:     # 文字颜色 提供几种：&apos;#ffffff&apos;
-# 注意：由于颜色如果包含#，使用单引号 &apos; 引起来</code></pre><p>开启字数统计<br>开启此功能需先安装插件，在 hexo根目录 执行 npm i hexo-wordcount –save<br>修改 _config.yml<br>    word_count: true</p>
-<p>多作者模式<br>可查看这篇文章： 3-hexo多作者模式</p>
+# 注意：由于颜色如果包含#，使用单引号 &apos; 引起来</code></pre><p>开启字数统计<br>开启此功能需先安装插件，在 hexo根目录 执行 npm i hexo-wordcount –save<br>修改 _config.yml</p>
+<pre><code>word_count: true</code></pre><p>多作者模式<br>可查看这篇文章： 3-hexo多作者模式</p>
 <p>文章排序及置顶<br>可查看这篇文章： Hexo置顶及排序问题</p>
 <p>关于写文章<br>如何写<br>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br>categories:文集，为左侧列表<br>tags:标签，通过#来筛选<br>例如 本篇文章的设置</p>
 <pre><code>---
@@ -523,8 +525,9 @@ tags:
 <pre><code>alias hs=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&apos;  #启动本地服务
 alias hd=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&apos;  #部署博客</code></pre><p>甚至你也可以加入备份文章的命令，可以自由发挥。</p>
 <p>博客备份（快捷命令升级版）<br>为了保证我们写的文章不丢失、快速迁移博客，都需要备份我们的blog。</p>
-<p>博客根目录，执行 git init 创建 git 仓库。<br>在 github（或其他托管平台、自建远程仓库等） 创建仓库并和本地仓库建立联系。<br>在 ~/.bashrc 文件中添加<br>    alias hs=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo s’<br>    alias hd=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m “update” &amp;&amp; git push -f’</p>
-<p>这样，我们在执行 hd 进行部署时，就一同将博客进行备份了</p>
+<p>博客根目录，执行 git init 创建 git 仓库。<br>在 github（或其他托管平台、自建远程仓库等） 创建仓库并和本地仓库建立联系。<br>在 ~/.bashrc 文件中添加</p>
+<pre><code>alias hs=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&apos;
+alias hd=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m &quot;update&quot; &amp;&amp; git push -f&apos;</code></pre><p>这样，我们在执行 hd 进行部署时，就一同将博客进行备份了</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kvipl@qq.com </span>
