@@ -266,7 +266,7 @@
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="2">
-<input type="hidden" id="yelog_site_word_count" value="1.6k">
+<input type="hidden" id="yelog_site_word_count" value="1.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -432,46 +432,98 @@
 <p>blog快捷键<br>可查看这篇文章： 3-hexo快捷键说明</p>
 <p>更换头像<br>两种方式：</p>
 <p>替换 source/img/avatar.jpg 图片。<br>修改 _config.yml 中头像的配置记录</p>
-<p>1 # 你的头像url<br>2 avatar: /img/avatar.jpg<br>3 favicon: /img/avatar.jpg<br>设置链接图标<br>如下，如果没有连接，则不展示图标。</p>
-<p>1 #链接图标，链接为空则不显示<br>2   link:<br>3   rss: /atom.xml<br>4   github: <a href="https://github.com/yelog" target="_blank" rel="noopener">https://github.com/yelog</a><br>5   facebook: <a href="https://www.facebook.com/faker.tops" target="_blank" rel="noopener">https://www.facebook.com/faker.tops</a><br>6   twitter:<br>7   linkedin:<br>8   instagram:<br>9   reddit: <a href="https://www.reddit.com/user/yelog/" target="_blank" rel="noopener">https://www.reddit.com/user/yelog/</a><br>10  weibo: <a href="http://weibo.com/u/2307534817" target="_blank" rel="noopener">http://weibo.com/u/2307534817</a><br>11  email: <a href="mailto:jaytp@qq.com">jaytp@qq.com</a></p>
-<p>开启关于页面<br>在 hexo 根目录执行以下，创建 关于 页面<br>1 hexo new page “about”</p>
-<p>位置： source/aoubt/index.md ，根据需要进行编辑。<br>在主题中开启显示：修改主题根目录 _config.yml 中的 about 的 on 为 true，如下所示<br>1 menu:<br>2 about:  # ‘关于’ 按钮<br>3  on: true # 是否显示<br>4  url: /about  # 跳转链接<br>5  type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页</p>
+<pre><code># 你的头像url
+avatar: /img/avatar.jpg
+favicon: /img/avatar.jpg</code></pre><p>设置链接图标<br>如下，如果没有连接，则不展示图标。</p>
+<pre><code>#链接图标，链接为空则不显示
+link:
+rss: /atom.xml
+github: https://github.com/yelog
+facebook: https://www.facebook.com/faker.tops
+twitter:
+linkedin:
+instagram:
+reddit: https://www.reddit.com/user/yelog/
+weibo: http://weibo.com/u/2307534817
+email: jaytp@qq.com</code></pre><p>开启关于页面<br>在 hexo 根目录执行以下，创建 关于 页面<br>    hexo new page “about”</p>
+<p>位置： source/aoubt/index.md ，根据需要进行编辑。<br>在主题中开启显示：修改主题根目录 _config.yml 中的 about 的 on 为 true，如下所示<br>    menu:<br>    about:  # ‘关于’ 按钮<br>    on: true # 是否显示<br>    url: /about  # 跳转链接<br>    type: 1 # 跳转类型 1：站内异步跳转 2：当前页面跳转 3：打开新的tab页</p>
 <p>添加音乐插件<br>3-hexo 添加音乐插件<br>配置评论系统<br>目前添加了三种评论系统 disqus、多说、网易云跟帖、gitment、gitalk</p>
 <p>日志： 2017-03-21：多说将于2017-06-01正式关停服务</p>
 <p>启用评论<br>以 disqus 为例；</p>
 <p>关掉其他两个评论（设置on: false）<br>启用 disqus ,设置on: true<br>登陆 disqus 注册，得到shortname，填入shortname。<br>重启 hexo。<br>meta区显示评论数<br>开启设置 _config.yml</p>
-<p>1 comment_count: true<br>2 # 文章标题下方显示评论数</p>
-<p>评论区预加载<br>开启设置 _config.yml</p>
-<p>1 preload_comment: false</p>
-<p>false: 当点击评论条等区域时再加载评论模块<br>true: 页面加载时加载评论区<br>关闭效果<br>关闭效果</p>
+<pre><code>comment_count: true
+# 文章标题下方显示评论数</code></pre><p>评论区预加载<br>开启设置 _config.yml</p>
+<pre><code>preload_comment: false
+
+false: 当点击评论条等区域时再加载评论模块
+true: 页面加载时加载评论区</code></pre><p>关闭效果<br>关闭效果</p>
 <p>样式设置<br>代码高亮<br>首先要关闭hexo根目录下_config.yml中的高亮设置：</p>
-<p>1 highlight:<br>2   enable: false</p>
-<p>配置主题下_config.yml中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题</p>
-<p>1 highlight:<br>2   on: true # true开启代码高亮<br>3   lineNum: true # true显示行号<br>4   theme: darcula<br>5 # 代码高亮主题,效果可以查看 <a href="https://highlightjs.org/static/demo/" target="_blank" rel="noopener">https://highlightjs.org/static/demo/</a><br>6 # 支持主题：<br>7 # sublime : 参考sublime的高亮主题<br>8 # darcula : 参考idea中的darcula的主题<br>9 # atom-dark : 参考Atom的dark主题<br>10 # atom-light : 参考Atom的light主题<br>11 # github : 参考GitHub版的高亮主题<br>12 # github-gist : GitHub-Gist主题<br>13 # brown-paper : 牛皮纸效果<br>14 # gruvbox-light : gruvbox的light主题<br>15 # gruvbox-dark ： gruvbox的dark主题<br>16 # rainbow :<br>17 # railscasts :<br>18 # sunburst :<br>19 # kimbie-dark :<br>20 # kimbie-light :<br>21 # school-book : 纸张效果</p>
-<p>MathJax数学公式<br>修改 _config.yml</p>
-<p>1 # MathJax 数学公式支持<br>2 mathjax:<br>3   on: true #是否启用<br>4   per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</p>
-<p>考虑到页面的加载速度，支持渲染单个页面。<br>设置 per_page: false ,在需要渲染的页面内 加入 mathjax: true</p>
+<pre><code>highlight:
+    enable: false</code></pre><p>配置主题下_config.yml中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题</p>
+<pre><code>highlight:
+    on: true # true开启代码高亮
+    lineNum: true # true显示行号
+    theme: darcula
+# 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/
+# 支持主题：
+# sublime : 参考sublime的高亮主题
+# darcula : 参考idea中的darcula的主题
+# atom-dark : 参考Atom的dark主题
+# atom-light : 参考Atom的light主题
+# github : 参考GitHub版的高亮主题
+# github-gist : GitHub-Gist主题
+# brown-paper : 牛皮纸效果
+# gruvbox-light : gruvbox的light主题
+# gruvbox-dark ： gruvbox的dark主题
+# rainbow :
+# railscasts :
+# sunburst :
+# kimbie-dark :
+# kimbie-light :
+# school-book : 纸张效果</code></pre><p>MathJax数学公式<br>修改 _config.yml</p>
+<pre><code># MathJax 数学公式支持
+mathjax:
+    on: true #是否启用
+    per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</code></pre><p>考虑到页面的加载速度，支持渲染单个页面。<br>设置 per_page: false ,在需要渲染的页面内 加入 mathjax: true</p>
 <p>注意:<br>由于hexo的MarkDown渲染器与MathJax有冲突，可能会造成矩阵等使用不正常。所以在使用之前需要修改两个地方<br>编辑 node_modules\marked\lib\marked.js 脚本</p>
-<p>1.将451行 ，这一步取消了对 \,{,} 的转义(escape)<br>1 escape: /^\([\<code>*{}\[\]()# +\-.!_&gt;])/,
-2 改为
-3 escape: /^\\([</code>*[]()# +-.!_&gt;])/,</p>
-<p>2.将459行，这一步取消了对斜体标记 _ 的转义<br>1 em: /^\b_((?:[^<em>]|_</em>)+?)_\b|^*((?:**|[\s\S])+?)*(?!*)/,<br>2 改为<br>3 em:/^*((?:**|[\s\S])+?)*(?!*)/,</p>
+<p>1.将451行 ，这一步取消了对 \,{,} 的转义(escape)<br>    escape: /^\([\<code>*{}\[\]()# +\-.!_&gt;])/,
+    改为
+    escape: /^\\([</code>*[]()# +-.!_&gt;])/,</p>
+<p>2.将459行，这一步取消了对斜体标记 _ 的转义<br>    em: /^\b_((?:[^<em>]|_</em>)+?)_\b|^*((?:**|[\s\S])+?)*(?!*)/,<br>    改为<br>    em:/^*((?:**|[\s\S])+?)*(?!*)/,</p>
 <p>表格样式<br>目前提供了3中样式，修改 _config.yml</p>
-<p>1 table: green_title<br>2 # table 的样式<br>3 # 为空时类似github的table样式<br>4 # green 绿色样式<br>5 # green_title 头部为青色的table样式</p>
-<p>文章列表的hover样式<br>鼠标移入的背景色和文字颜色变动，设置 _config.yml</p>
-<p>1 #文章列表 鼠标移上去的样式, 为空时使用默认效果<br>2 article_list:<br>3   hover:<br>4     background: ‘#e2e0e0’  # 背景色:提供几种：’#c1bfc1’  ‘#fbf4a8’<br>5     color:     # 文字颜色 提供几种：’#ffffff’<br>6 # 注意：由于颜色如果包含#，使用单引号 ‘ 引起来</p>
-<p>开启字数统计<br>开启此功能需先安装插件，在 hexo根目录 执行 npm i hexo-wordcount –save<br>修改 _config.yml<br>1 word_count: true</p>
+<pre><code>table: green_title
+# table 的样式
+# 为空时类似github的table样式
+# green 绿色样式
+# green_title 头部为青色的table样式</code></pre><p>文章列表的hover样式<br>鼠标移入的背景色和文字颜色变动，设置 _config.yml</p>
+<pre><code>#文章列表 鼠标移上去的样式, 为空时使用默认效果
+article_list:
+hover:
+    background: &apos;#e2e0e0&apos;  # 背景色:提供几种：&apos;#c1bfc1&apos;  &apos;#fbf4a8&apos;
+    color:     # 文字颜色 提供几种：&apos;#ffffff&apos;
+# 注意：由于颜色如果包含#，使用单引号 &apos; 引起来</code></pre><p>开启字数统计<br>开启此功能需先安装插件，在 hexo根目录 执行 npm i hexo-wordcount –save<br>修改 _config.yml<br>    word_count: true</p>
 <p>多作者模式<br>可查看这篇文章： 3-hexo多作者模式</p>
 <p>文章排序及置顶<br>可查看这篇文章： Hexo置顶及排序问题</p>
 <p>关于写文章<br>如何写<br>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br>categories:文集，为左侧列表<br>tags:标签，通过#来筛选<br>例如 本篇文章的设置</p>
-<p>1 —<br>2 title: 3-hexo使用说明<br>3 date: 2017-03-23 15:13:47<br>4 categories:<br>5 - 工具<br>6 tags:<br>7 - hexo<br>8 - 3-hexo<br>9 —</p>
-<p>写作<br>1.设置模板，blog根目录 scaffolds/post.md<br>加入categories,tags等，这样以后通过 hexo new 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。</p>
-<p>1 —<br>2 title: 3-hexo使用说明<br>3 date: 1581693191000<br>4 categories:<br>5 tags:<br>6 —</p>
-<p>技巧<br>快捷命令<br>其实就通过alias，触发一些命令的集合<br>在 ~/.bashrc 文件中添加</p>
-<p>1 alias hs=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo s’  #启动本地服务<br>2 alias hd=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo d’  #部署博客</p>
-<p>甚至你也可以加入备份文章的命令，可以自由发挥。</p>
+<pre><code>---
+title: 3-hexo使用说明
+date: 2017-03-23 15:13:47
+categories:
+- 工具
+tags:
+- hexo
+- 3-hexo
+---</code></pre><p>写作<br>1.设置模板，blog根目录 scaffolds/post.md<br>加入categories,tags等，这样以后通过 hexo new 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。</p>
+<pre><code>---
+title: {{ title }}
+date: {{ date }}
+categories:
+tags:
+---</code></pre><p>技巧<br>快捷命令<br>其实就通过alias，触发一些命令的集合<br>在 ~/.bashrc 文件中添加</p>
+<pre><code>alias hs=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&apos;  #启动本地服务
+alias hd=&apos;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&apos;  #部署博客</code></pre><p>甚至你也可以加入备份文章的命令，可以自由发挥。</p>
 <p>博客备份（快捷命令升级版）<br>为了保证我们写的文章不丢失、快速迁移博客，都需要备份我们的blog。</p>
-<p>博客根目录，执行 git init 创建 git 仓库。<br>在 github（或其他托管平台、自建远程仓库等） 创建仓库并和本地仓库建立联系。<br>在 ~/.bashrc 文件中添加<br>1 alias hs=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo s’<br>2 alias hd=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m “update” &amp;&amp; git push -f’</p>
+<p>博客根目录，执行 git init 创建 git 仓库。<br>在 github（或其他托管平台、自建远程仓库等） 创建仓库并和本地仓库建立联系。<br>在 ~/.bashrc 文件中添加<br>    alias hs=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo s’<br>    alias hd=’hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m “update” &amp;&amp; git push -f’</p>
 <p>这样，我们在执行 hd 进行部署时，就一同将博客进行备份了</p>
 
       
