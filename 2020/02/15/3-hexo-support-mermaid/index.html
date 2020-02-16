@@ -479,16 +479,16 @@ options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidA
     B--&gt;D;
     C--&gt;D;</code></pre>
 <h3 id="2-Sequence-diagrams"><a href="#2-Sequence-diagrams" class="headerlink" title="2.Sequence diagrams"></a>2.Sequence diagrams</h3><pre><code class="mermaid">sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
-    loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts &lt;br/&gt;prevail!
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!</code></pre>
+participant Alice
+participant Bob
+Alice-&gt;&gt;John: Hello John, how are you?
+loop Healthcheck
+    John-&gt;&gt;John: Fight against hypochondria
+end
+Note right of John: Rational thoughts &lt;br/&gt;prevail!
+John--&gt;&gt;Alice: Great!
+John-&gt;&gt;Bob: How about you?
+Bob--&gt;&gt;John: Jolly good!</code></pre>
 <h3 id="3-Class-diagrams"><a href="#3-Class-diagrams" class="headerlink" title="3.Class diagrams"></a>3.Class diagrams</h3><pre><code class="mermaid">classDiagram
 Class01 &lt;|-- AveryLongClass : Cool
 Class03 *-- Class04
@@ -504,39 +504,38 @@ Class01 : int chimp
 Class01 : int gorilla
 Class08 &lt;--&gt; C2: Cool label</code></pre>
 <h3 id="4-State-diagrams"><a href="#4-State-diagrams" class="headerlink" title="4.State diagrams"></a>4.State diagrams</h3><pre><code class="mermaid">stateDiagram
-       [*] --&gt; Active
+[*] --&gt; Active
 
-       state Active {
-           [*] --&gt; NumLockOff
-           NumLockOff --&gt; NumLockOn : EvNumLockPressed
-           NumLockOn --&gt; NumLockOff : EvNumLockPressed
-           --
-           [*] --&gt; CapsLockOff
-           CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
-           CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
-           --
-           [*] --&gt; ScrollLockOff
-           ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
-           ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
-       }
-</code></pre>
+state Active {
+    [*] --&gt; NumLockOff
+    NumLockOff --&gt; NumLockOn : EvNumLockPressed
+    NumLockOn --&gt; NumLockOff : EvNumLockPressed
+    --
+    [*] --&gt; CapsLockOff
+    CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
+    CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
+    --
+    [*] --&gt; ScrollLockOff
+    ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
+    ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
+}</code></pre>
 <h3 id="5-Gantt-diagrams"><a href="#5-Gantt-diagrams" class="headerlink" title="5.Gantt diagrams"></a>5.Gantt diagrams</h3><pre><code class="mermaid">sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
-    loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts &lt;br/&gt;prevail!
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!</code></pre>
+participant Alice
+participant Bob
+Alice-&gt;&gt;John: Hello John, how are you?
+loop Healthcheck
+    John-&gt;&gt;John: Fight against hypochondria
+end
+Note right of John: Rational thoughts &lt;br/&gt;prevail!
+John--&gt;&gt;Alice: Great!
+John-&gt;&gt;Bob: How about you?
+Bob--&gt;&gt;John: Jolly good!</code></pre>
 <h3 id="6-Pie-chart-diagrams"><a href="#6-Pie-chart-diagrams" class="headerlink" title="6.Pie chart diagrams"></a>6.Pie chart diagrams</h3><pre><code class="mermaid">pie
-    title Key elements in Product X
-    &quot;Calcium&quot; : 42.96
-    &quot;Potassium&quot; : 50.05
-    &quot;Magnesium&quot; : 10.01
-    &quot;Iron&quot; :  5```</code></pre>
+title Key elements in Product X
+&quot;Calcium&quot; : 42.96
+&quot;Potassium&quot; : 50.05
+&quot;Magnesium&quot; : 10.01
+&quot;Iron&quot; :  5```</code></pre>
 <h3 id="7-Git-graph-experimental"><a href="#7-Git-graph-experimental" class="headerlink" title="7.Git graph -: experimental"></a>7.Git graph -: experimental</h3><pre><code class="mermaid">gitGraph:
 options
 {
@@ -712,7 +711,7 @@ merge newbranch</code></pre>
         if (window.mermaid){
             window.mermaid = null
         }
-        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.6/dist/mermaid.min.js", function () {
             var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
             if (window.mermaid) {
                 mermaid.initialize(mermaidOptions)
