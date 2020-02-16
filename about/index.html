@@ -39,8 +39,6 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
-
 <script src="/js/iconfont.js?v=1.0.1" ></script>
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -463,23 +461,21 @@
 
 
     <div id="comments"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
 
-<script type="text/javascript">
-    $.getScript('/js/gitalk.js', function () {
-        var gitalk = new Gitalk({
-            clientID: '',
-            clientSecret: '',
-            repo: 'kvipl.github.io',
-            owner: 'kvipl',
-            admin: ['kvipl'],
-            id: decodeURI(location.pathname),
-            distractionFreeMode: 'true',
-            language: 'zh-CN',
-            perPage: parseInt('10',10)
-        })
-        gitalk.render('comments')
+<script src="/js/gitment.js"></script>
+
+<script>
+    var gitment = new Gitment({
+        id: 'https://kvipl.github.io/about/index.html', // 可选。默认为 location.href
+        owner: 'kvipl',
+        repo: 'kvipl.github.io',
+        oauth: {
+            client_id: '53c317a2a5bad69181b6',
+            client_secret: '82e9dc14b22f9f833db2532473fbde650e204604',
+        },
     })
+    gitment.render('comments')
 </script>
 
 
