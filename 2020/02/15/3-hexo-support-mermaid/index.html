@@ -405,7 +405,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:522</span>
+        <span>字数:478</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -435,7 +435,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、说明"><span class="toc-text">一、说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启"><span class="toc-text">开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、示例"><span class="toc-text">二、示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-flowchart"><span class="toc-text">1. flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Sequence-diagrams"><span class="toc-text">2.Sequence diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Class-diagrams"><span class="toc-text">3.Class diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-State-diagrams"><span class="toc-text">4.State diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Gantt-diagrams"><span class="toc-text">5.Gantt diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Pie-chart-diagrams"><span class="toc-text">6.Pie chart diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Git-graph-experimental"><span class="toc-text">7.Git graph -: experimental</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、说明"><span class="toc-text">一、说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启"><span class="toc-text">开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、示例"><span class="toc-text">二、示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-flowchart"><span class="toc-text">1. flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Sequence-diagrams"><span class="toc-text">2.Sequence diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Class-diagrams"><span class="toc-text">3.Class diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-State-diagrams"><span class="toc-text">4.State diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Gantt-diagrams"><span class="toc-text">5.Gantt diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Pie-chart-diagrams"><span class="toc-text">6.Pie chart diagrams</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -478,56 +478,18 @@ options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidA
     A--&gt;C;
     B--&gt;D;
     C--&gt;D;</code></pre>
-<pre><code class="mermaid">graph TD
-    B((开始)) --&gt;C{判断}
-    C --  a=1 --&gt;D[执行语句1]
-    C --  a=2  --&gt;E[执行语句2]
-    C --  a=3 --&gt;F[执行语句3]
-    C -- a=4  --&gt;G[执行语句4]
-    D--&gt; AA((结束))
-    E--&gt; AA
-    F--&gt; AA
-    G--&gt; AA</code></pre>
+<pre><code class="mermaid">graph TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end</code></pre>
 <h3 id="2-Sequence-diagrams"><a href="#2-Sequence-diagrams" class="headerlink" title="2.Sequence diagrams"></a>2.Sequence diagrams</h3><pre><code class="mermaid">sequenceDiagram
-    Alice -&gt;&gt; Bob: Hello Bob, how are you?
-    Bob--&gt;&gt;John: How about you John?
-    Bob--x Alice: I am good thanks!
-    Bob-x John: I am good thanks!
-    Note right of John: Bob thinks a long&lt;br/&gt;long time, so long&lt;br/&gt;that the text does&lt;br/&gt;not fit on a row.
-
-    Bob--&gt;Alice: Checking with John...
-    Alice-&gt;John: Yes... John, how are you?</code></pre>
-<h3 id="3-Class-diagrams"><a href="#3-Class-diagrams" class="headerlink" title="3.Class diagrams"></a>3.Class diagrams</h3><pre><code class="mermaid">classDiagram
-Class01 &lt;|-- AveryLongClass : Cool
-Class03 *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 --&gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-Class08 &lt;--&gt; C2: Cool label</code></pre>
-<h3 id="4-State-diagrams"><a href="#4-State-diagrams" class="headerlink" title="4.State diagrams"></a>4.State diagrams</h3><pre><code class="mermaid">stateDiagram
-    [*] --&gt; Active
-
-    state Active {
-        [*] --&gt; NumLockOff
-        NumLockOff --&gt; NumLockOn : EvNumLockPressed
-        NumLockOn --&gt; NumLockOff : EvNumLockPressed
-        --
-        [*] --&gt; CapsLockOff
-        CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
-        CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
-        --
-        [*] --&gt; ScrollLockOff
-        ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
-        ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
-    }</code></pre>
-<h3 id="5-Gantt-diagrams"><a href="#5-Gantt-diagrams" class="headerlink" title="5.Gantt diagrams"></a>5.Gantt diagrams</h3><pre><code class="mermaid">sequenceDiagram
     participant Alice
     participant Bob
     Alice-&gt;&gt;John: Hello John, how are you?
@@ -538,20 +500,75 @@ Class08 &lt;--&gt; C2: Cool label</code></pre>
     John--&gt;&gt;Alice: Great!
     John-&gt;&gt;Bob: How about you?
     Bob--&gt;&gt;John: Jolly good!</code></pre>
-<h3 id="6-Pie-chart-diagrams"><a href="#6-Pie-chart-diagrams" class="headerlink" title="6.Pie chart diagrams"></a>6.Pie chart diagrams</h3><pre><code class="mermaid">pie title NETFLIX
-         &quot;Time spent looking for movie&quot; : 90
-         &quot;Time spent watching it&quot; : 10</code></pre>
-<h3 id="7-Git-graph-experimental"><a href="#7-Git-graph-experimental" class="headerlink" title="7.Git graph -: experimental"></a>7.Git graph -: experimental</h3><pre><code class="mermaid">st=&gt;start: 开始语句
-in=&gt;inputoutput: 输入值
-e=&gt;end: 结束语句
-op=&gt;operation: 执行操作
-cond=&gt;condition: 是否成立？
-out=&gt;inputoutput: 输出值
+<h3 id="3-Class-diagrams"><a href="#3-Class-diagrams" class="headerlink" title="3.Class diagrams"></a>3.Class diagrams</h3><pre><code class="mermaid">classDiagram
+     Animal &lt;|-- Duck
+     Animal &lt;|-- Fish
+     Animal &lt;|-- Zebra
+     Animal : +int age
+     Animal : +String gender
+     Animal: +isMammal()
+     Animal: +mate()
+     class Duck{
+         +String beakColor
+         +swim()
+         +quack()
+     }
+     class Fish{
+         -int sizeInFeet
+         -canEat()
+     }
+     class Zebra{
+         +bool is_wild
+         +run()
+     }</code></pre>
+<h3 id="4-State-diagrams"><a href="#4-State-diagrams" class="headerlink" title="4.State diagrams"></a>4.State diagrams</h3><pre><code class="mermaid">stateDiagram
+       [*] --&gt; Active
 
-st-&gt;in-&gt;op-&gt;cond
-cond(yes)-&gt;out
-cond(no)-&gt;op
-out-&gt;e</code></pre>
+       state Active {
+           [*] --&gt; NumLockOff
+           NumLockOff --&gt; NumLockOn : EvNumLockPressed
+           NumLockOn --&gt; NumLockOff : EvNumLockPressed
+           --
+           [*] --&gt; CapsLockOff
+           CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
+           CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
+           --
+           [*] --&gt; ScrollLockOff
+           ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
+           ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
+       }
+</code></pre>
+<h3 id="5-Gantt-diagrams"><a href="#5-Gantt-diagrams" class="headerlink" title="5.Gantt diagrams"></a>5.Gantt diagrams</h3><pre><code class="mermaid">gantt
+       dateFormat  YYYY-MM-DD
+       title Adding GANTT diagram functionality to mermaid
+
+       section A section
+       Completed task            :done,    des1, 2014-01-06,2014-01-08
+       Active task               :active,  des2, 2014-01-09, 3d
+       Future task               :         des3, after des2, 5d
+       Future task2              :         des4, after des3, 5d
+
+       section Critical tasks
+       Completed task in the critical line :crit, done, 2014-01-06,24h
+       Implement parser and jison          :crit, done, after des1, 2d
+       Create tests for parser             :crit, active, 3d
+       Future task in critical line        :crit, 5d
+       Create tests for renderer           :2d
+       Add to mermaid                      :1d
+
+       section Documentation
+       Describe gantt syntax               :active, a1, after des1, 3d
+       Add gantt diagram to demo page      :after a1  , 20h
+       Add another diagram to demo page    :doc1, after a1  , 48h
+
+       section Last section
+       Describe gantt syntax               :after doc1, 3d
+       Add gantt diagram to demo page      :20h
+       Add another diagram to demo page    :48h</code></pre>
+<h3 id="6-Pie-chart-diagrams"><a href="#6-Pie-chart-diagrams" class="headerlink" title="6.Pie chart diagrams"></a>6.Pie chart diagrams</h3><pre><code class="mermaid">pie
+    &quot;Dogs&quot; : 386
+    &quot;Cats&quot; : 85
+    &quot;Rats&quot; : 15</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kvipl@qq.com </span>
@@ -566,7 +583,7 @@ out-&gt;e</code></pre>
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>3-hexo支持mermaid图表</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">522</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">478</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="kvipl">kvipl</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-15, 21:45:43</p>
     <p><span class="copy-title">最后更新:</span>2020-02-15, 21:45:43</p>
