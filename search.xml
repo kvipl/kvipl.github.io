@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>完美替代多说-gitment</title>
+      <link href="/2020/02/16/gitment/"/>
+      <url>/2020/02/16/gitment/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>转自： <a href="https://yelog.org/2017/06/26/gitment/" target="_blank" rel="noopener">https://yelog.org/2017/06/26/gitment/</a></p></blockquote><p>自从多说要停止服务时，就开始关注第三方评论系统，现在的评论系统都有这样或那样的问题，见  。忽然看到作者 孙士权 的一片文章 <a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="noopener">Gitment：使用 GitHub Issues 搭建评论系统</a> 。</p><p>立即就将 <code>gitment</code> 集成到 <code>3-hexo</code> 主题内。本篇文章只讲在 <code>3-hexo</code> 内如何使用，如果想自定义，可以参考上面原文。</p><h2 id="注册-OAuth-Application"><a href="#注册-OAuth-Application" class="headerlink" title="注册 OAuth Application"></a>注册 OAuth Application</h2><p><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">点击此处</a> 来注册一个新的 OAuth Application。其他内容可以随意填写，但要确保填入正确的 callback URL（一般是评论页面对应的域名，如 <a href="http://yelog.org）。" target="_blank" rel="noopener">http://yelog.org）。</a><br><img src="http://img.saodiyang.com/FsumVHpCC4h5JxRNg0TiKlMf0b1Y.png" alt="作者是这样填的"></p><h2 id="使用-gitment-评论系统"><a href="#使用-gitment-评论系统" class="headerlink" title="使用 gitment 评论系统"></a>使用 gitment 评论系统</h2><p>修改主题 <code>_config.yml</code></p><pre><code class="xml">gitment:  on: true  # 启用gitment评论系统  owner: yelog  # 你的github账号  repo: yelog.github.io  # 评论issue保存的仓库，我选择保存在blog仓库，也可以新建一个仓库  client_id: d64ceca0d8a4e8b1f5c9   # 上一步注册后生成的client_id  client_secret: fb17d5f0aba31372f61a03df707bb20a39a73a06 # 上一步注册后生成的client_secret</code></pre><h2 id="部署并初始化"><a href="#部署并初始化" class="headerlink" title="部署并初始化"></a>部署并初始化</h2><p>1.发布 hexo</p><pre><code class="bash">$ hexo clear &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><p>2.打开发布的blog，登录github账号，并点击 <code>Initialize Comments</code>。<br><img src="http://img.saodiyang.com/FnO9sHY-eFVXwnLplwsP9NRvityH.png" alt="初始化本页的评论"></p><p>3.现在其他人就可以进行评论了</p><h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>整体评论系统做的简洁，整体来说是个不错的系统。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>3-hexo配置MathJax数学公式渲染</title>
       <link href="/2020/02/16/3-hexo-mathjax/"/>
       <url>/2020/02/16/3-hexo-mathjax/</url>
