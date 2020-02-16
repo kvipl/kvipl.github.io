@@ -6,14 +6,14 @@
   <meta name="keywords" content=" hexo , 3-hexo ">
   <meta name="description" content="3-hexo使用说明 | kvipl">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="页面未找到！很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
+<meta name="description" content="关于kviplkvipl 是kvipl的博客。Welcom everyone!This is kvipl’s blog.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://kvipl.github.io/404.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://kvipl.github.io/about/index.html">
 <meta property="og:site_name" content="kvipl">
-<meta property="og:description" content="页面未找到！很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
-<meta property="article:published_time" content="2020-02-15T04:38:18.000Z">
-<meta property="article:modified_time" content="2020-02-15T04:38:18.064Z">
+<meta property="og:description" content="关于kviplkvipl 是kvipl的博客。Welcom everyone!This is kvipl’s blog.">
+<meta property="article:published_time" content="2020-02-14T13:09:48.000Z">
+<meta property="article:modified_time" content="2020-02-14T13:09:48.483Z">
 <meta property="article:author" content="kvipl">
 <meta name="twitter:card" content="summary">
 
@@ -766,9 +766,9 @@ alias hd=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add 
             temp = null;
             return output;
         }
-        //if (window.mermaid){
-        //    window.mermaid = null
-        //}
+        if (window.mermaid){
+            window.mermaid = null
+        }
         $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
             var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:true,&#34;htmlLabels&#34;:true}}"))
             if (window.mermaid) {
