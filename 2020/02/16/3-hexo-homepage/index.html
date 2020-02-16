@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>about | kvipl</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="about | kvipl">
+  <title>3-hexo配置首页 | kvipl</title>
+  <meta name="keywords" content=" hexo , 3-hexo ">
+  <meta name="description" content="3-hexo配置首页 | kvipl">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
 <meta property="og:type" content="website">
@@ -372,24 +372,40 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-3-hexo-homepage" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">about</h1>
+        <h1 class="article-title">3-hexo配置首页</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="工具">工具</a>/
+            
+                <a  data-rel="hexo">hexo</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">hexo</a>
+            
+            <a class="color2">3-hexo</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-14 21:09:48'>2020-02-14 21:09</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-16 14:22:04'>2020-02-16 14:22</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:15</span>
+        <span>字数:360</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -419,7 +435,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于kvipl"><span class="toc-text">关于kvipl</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章数统计-字数统计"><span class="toc-text">文章数统计&#x2F;字数统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流量统计"><span class="toc-text">流量统计</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -435,7 +451,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于kvipl"><a href="#关于kvipl" class="headerlink" title="关于kvipl"></a>关于kvipl</h2><p><strong>kvipl</strong> 是kvipl的博客。<br>Welcom everyone!<br>This is kvipl’s blog.</p>
+        <blockquote>
+<p>转自：<a href="https://yelog.org/2017/03/13/3-hexo-homepage/" target="_blank" rel="noopener">https://yelog.org/2017/03/13/3-hexo-homepage/</a></p>
+</blockquote>
+<p>今日将首页提到md文件中了，方便大家的更改。</p>
+<p>首页文件位置 /layout/indexs.md ，既然是md格式，要怎么写大家应该都熟门熟路了，阿杰就不赘述了。</p>
+<p>如果需要使用以下信息，可以按照下面的方式使用（<strong>以下内容不限首页使用</strong>）</p>
+<h2 id="文章数统计-字数统计"><a href="#文章数统计-字数统计" class="headerlink" title="文章数统计/字数统计"></a>文章数统计/字数统计</h2><p>加入含有 <code>class=&quot;article_number&quot;</code>的html标签可显示文章数量。<br>加入含有 <code>class=&quot;site_word_count&quot;</code>的html标签可显示站点总字数。</p>
+<pre><code class="html">&lt;!-- 我这里是借用了code的样式，所以直接使用code标签。
+    自定义样式，可加入style属性设置--&gt;
+&lt;code class=&quot;article_number&quot;&gt;&lt;/code&gt;
+&lt;code class=&quot;site_word_count&quot;&gt;&lt;/code&gt;</code></pre>
+<p><strong>上面代码的效果：</strong><br>文章：<code class="article_number"></code>篇；总字数：<code class="site_word_count"></code>字；</p>
+<h2 id="流量统计"><a href="#流量统计" class="headerlink" title="流量统计"></a>流量统计</h2><blockquote>
+<p>日志： 2017-03-18改动，由原来的 id 改为现在的 class，可在页面添加多个同类标签</p>
+</blockquote>
+<p>加入含有 <code>class=&quot;site_uv&quot;</code>的html标签可显示站点访问人次。<br>加入含有 <code>class=&quot;site_pv&quot;</code>的html标签可显示站点访问量。</p>
+<pre><code class="html">&lt;!-- 我这里是借用了code的样式，所以直接使用code标签。
+    自定义样式，可加入style属性设置--&gt;
+&lt;code class=&quot;site_uv&quot;&gt;&lt;/code&gt;
+&lt;code class=&quot;site_pv&quot;&gt;&lt;/code&gt;</code></pre>
+<p><strong>上面代码的效果：</strong><br>访问人数：<code class="site_uv"></code>人，访问量：<code class="site_pv"></code>次。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kvipl@qq.com </span>
@@ -447,6 +483,18 @@
     <a  class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>3-hexo配置首页</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">360</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="kvipl">kvipl</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-02-16, 14:22:04</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-16, 14:22:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/16/3-hexo-homepage/" title="3-hexo配置首页">https://kvipl.github.io/2020/02/16/3-hexo-homepage/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 
