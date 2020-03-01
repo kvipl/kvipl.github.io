@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Git之SSH与HTTPS免密码配置</title>
+      <link href="/2020/03/01/Git-SSH-HTTPS-verify-configuration/"/>
+      <url>/2020/03/01/Git-SSH-HTTPS-verify-configuration/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>转自<a href="https://yelog.org/2016/12/21/Git-SSH-HTTPS-verify-configuration/" target="_blank" rel="noopener">叶落阁</a></p></blockquote><p>Git作为当前最受欢迎的版本控制软件，使用是很频繁的。但每次使用git push等操作时都要输入密码，实在是挺麻烦的。本文对使用ssh与https两种通讯协议讨论一下免密码配置。<br>注：这个过程在所有操作系统上都是相似的：）</p><a id="more"></a><h2 id="SSH通信协议"><a href="#SSH通信协议" class="headerlink" title="SSH通信协议"></a>SSH通信协议</h2><h3 id="GitHub版"><a href="#GitHub版" class="headerlink" title="GitHub版"></a>GitHub版</h3><p>许多Git服务器都使用SSH公钥进行认证，当然也包括github。<br>首先你需要确认一下自己是否已经拥有密钥了，默认情况下，用户的 SSH 密钥存储在其 <code>~/.ssh</code> 目录下。进入该目录并列出其中内容，你变可以下快速确认自己是否已经拥有密钥：</p><pre><code class="bash">$ cd ~/.ssh$ lsauthorized_keys2  id_rsa       known_hostsconfig            id_rsa.pub</code></pre><p>我们需要寻找一对 <code>id_rsa</code> 或 <code>id_dsa</code> 命名的文件，其中一个带 <code>.pub</code> 扩展名。 ‘.pub’文件是你的公钥，另一个则是私钥。如果没有找不到这样的文件（或者根本就没有<code>.ssh</code>目录），我们可以通过 <code>ssh-keygen</code> 程序来创建它们。</p><pre><code class="bash">#邮箱可以随便填$ ssh-keygen -t rsa -C &quot;xx@xx.com&quot;</code></pre><p>首先 <code>ssh-keygen</code> 会确认密钥的存储位置和文件名（默认是 <code>.ssh/id_rsa</code>）,然后他会要求你输入两次密钥口令，留空即可。所以一般选用默认，全部回车即可。</p><p>接下来我们登陆到GitHub上，右上角小头像-&gt;Setting-&gt;SSH and GPG keys中，点击new SSH key。<br><code>Title：</code>可以随便填写，但最好起的名字能让自己知道这个公钥是哪个设备的。<br><code>Key：</code>将上面生成的<code>.pub</code>文件中的所有内容复制到这里。<br>点击下面的Add SSH key即可。<br>然后你就会发现可以免密码访问了</p><h3 id="Git服务器"><a href="#Git服务器" class="headerlink" title="Git服务器"></a>Git服务器</h3><p>如果服务端是自己搭建的git服务器，生成密钥公钥对的步骤是一样的。<br>然后将生成的 <code>.pub</code> 文件内容，导入到git服务器 <code>/home/git/.ssh/authorized_keys</code> 文件内，一行一个。<br>然后你就会发现git push 不再需要密码了<br>搭建git服务器和相关免登陆的详细步骤可参考我的另一篇 </p><h2 id="HTTPS通信协议"><a href="#HTTPS通信协议" class="headerlink" title="HTTPS通信协议"></a>HTTPS通信协议</h2><p>上面讲了SSH方式的免密码，接下来讲一下越来越常用的HTTPS方式的免密码<br>新建文件并保存密码</p><pre><code class="bash">$ touch ~/.git-credentials$ vim ~/.git-credentials</code></pre><p>添加内容</p><pre><code class="bash">https://{username}:{passwd}@github.com</code></pre><p>添加git配置</p><pre><code class="bash">$ git config --global credential.helper store</code></pre><p>查看～/.gitconfig文件变化</p><pre><code class="xml">[credential]    helper = store</code></pre><p>然后再尝试一下git push不再在需要密码了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一个客户端设置多个github账号</title>
       <link href="/2020/03/01/computer-mutiple-github-account/"/>
       <url>/2020/03/01/computer-mutiple-github-account/</url>
@@ -22,9 +49,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Git </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -37,7 +64,7 @@
       <link href="/2020/03/01/hexo-gitHub-pages-create-own-blog/"/>
       <url>/2020/03/01/hexo-gitHub-pages-create-own-blog/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>转自<a href="https://yelog.org/2016/10/22/hexo-gitHub-pages-create-own-blog/" target="_blank" rel="noopener">叶落阁</a></p></blockquote><p>Hexo是一个快速，简单，功能强大的开源博客框架-》<a href="https://hexo.io/" target="_blank" rel="noopener">官网</a><br>GitHub Pages 是一个不受限的网站空间。<br>两者相得益彰。给那些喜欢自己折腾的人提供一些借鉴。</p><a id="more"></a><h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><p>博主使用系统：Deepin Linux 15.3桌面版<br>安装 node与npm</p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><pre><code class="bash">npm install hexo-cli -g</code></pre><h3 id="初始化blog"><a href="#初始化blog" class="headerlink" title="初始化blog"></a>初始化blog</h3><pre><code class="bash">hexo init blog</code></pre><p>至此，本地blog已经创建完成，是不是很简单，简单到没朋友</p><h3 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h3><p>可以在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网</a>查看自己喜欢的主题<br>通过git clone [url] themes/xxx 将主题克隆到本地，<br>修改 <code>_config.yml</code> 中的theme：xxx</p><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre><code class="bash">#创建一个新的文章$ hexo new &quot;文章名&quot;#生成静态文件$ hexo generate#将一个草稿发布出去$ hexo publish [layout] &lt;filename&gt;#启动一个本地服务器$ hexo server</code></pre><p>更多命令移步<a href="https://hexo.io/docs/commands.html" target="_blank" rel="noopener">官方文档</a></p><h3 id="搭建github-pages"><a href="#搭建github-pages" class="headerlink" title="搭建github pages"></a>搭建github pages</h3><p>本地blog已经搭建完成，现在可以发布到github pages上</p><h4 id="注册github账户"><a href="#注册github账户" class="headerlink" title="注册github账户"></a>注册github账户</h4><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>注册一个github账户</p><h4 id="配置登录免密码"><a href="#配置登录免密码" class="headerlink" title="配置登录免密码"></a>配置登录免密码</h4><p>移步 </p><h4 id="创建github远程仓库"><a href="#创建github远程仓库" class="headerlink" title="创建github远程仓库"></a>创建github远程仓库</h4><p>在github上创建一个仓库 <code>xxx.github.io</code> xxx为自己的github用户名</p><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><pre><code class="bash">$ npm install hexo-deployer-git --save</code></pre><h4 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h4><p>修改 <code>_comfig.yml</code>,xxx为你的用户名</p><pre><code class="xml">deploy:   type: git   repo: git@github.com:xxx/xxx.github.io.git   branch: master</code></pre><h4 id="推送服务器"><a href="#推送服务器" class="headerlink" title="推送服务器"></a>推送服务器</h4><pre><code class="bash">$ hexo deploy</code></pre><blockquote><p>若出现<code>ERROR Deployer not found: git</code>报错，请执行上面安装插件步骤</p></blockquote><h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>打开 <code>xxx.github.io</code> ，就能看到你的blog了</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>转自<a href="https://yelog.org/2016/10/22/hexo-gitHub-pages-create-own-blog/" target="_blank" rel="noopener">叶落阁</a></p></blockquote><p>Hexo是一个快速，简单，功能强大的开源博客框架-》<a href="https://hexo.io/" target="_blank" rel="noopener">官网</a><br>GitHub Pages 是一个不受限的网站空间。<br>两者相得益彰。给那些喜欢自己折腾的人提供一些借鉴。</p><a id="more"></a><h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><p>博主使用系统：Deepin Linux 15.3桌面版<br>安装 node与npm</p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><pre><code class="bash">npm install hexo-cli -g</code></pre><h3 id="初始化blog"><a href="#初始化blog" class="headerlink" title="初始化blog"></a>初始化blog</h3><pre><code class="bash">hexo init blog</code></pre><p>至此，本地blog已经创建完成，是不是很简单，简单到没朋友</p><h3 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h3><p>可以在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网</a>查看自己喜欢的主题<br>通过git clone [url] themes/xxx 将主题克隆到本地，<br>修改 <code>_config.yml</code> 中的theme：xxx</p><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre><code class="bash">#创建一个新的文章$ hexo new &quot;文章名&quot;#生成静态文件$ hexo generate#将一个草稿发布出去$ hexo publish [layout] &lt;filename&gt;#启动一个本地服务器$ hexo server</code></pre><p>更多命令移步<a href="https://hexo.io/docs/commands.html" target="_blank" rel="noopener">官方文档</a></p><h3 id="搭建github-pages"><a href="#搭建github-pages" class="headerlink" title="搭建github pages"></a>搭建github pages</h3><p>本地blog已经搭建完成，现在可以发布到github pages上</p><h4 id="注册github账户"><a href="#注册github账户" class="headerlink" title="注册github账户"></a>注册github账户</h4><p>到<a href="https://github.com/" target="_blank" rel="noopener">github官网</a>注册一个github账户</p><h4 id="配置登录免密码"><a href="#配置登录免密码" class="headerlink" title="配置登录免密码"></a>配置登录免密码</h4><p>移步 <a href="/2020/03/01/Git-SSH-HTTPS-verify-configuration/" title="Git之SSH与HTTPS免密码配置">Git之SSH与HTTPS免密码配置</a></p><h4 id="创建github远程仓库"><a href="#创建github远程仓库" class="headerlink" title="创建github远程仓库"></a>创建github远程仓库</h4><p>在github上创建一个仓库 <code>xxx.github.io</code> xxx为自己的github用户名</p><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><pre><code class="bash">$ npm install hexo-deployer-git --save</code></pre><h4 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h4><p>修改 <code>_comfig.yml</code>,xxx为你的用户名</p><pre><code class="xml">deploy:   type: git   repo: git@github.com:xxx/xxx.github.io.git   branch: master</code></pre><h4 id="推送服务器"><a href="#推送服务器" class="headerlink" title="推送服务器"></a>推送服务器</h4><pre><code class="bash">$ hexo deploy</code></pre><blockquote><p>若出现<code>ERROR Deployer not found: git</code>报错，请执行上面安装插件步骤</p></blockquote><h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>打开 <code>xxx.github.io</code> ，就能看到你的blog了</p>]]></content>
       
       
       <categories>
@@ -51,11 +78,11 @@
       
         <tags>
             
+            <tag> Git </tag>
+            
             <tag> hexo </tag>
             
             <tag> GitHub </tag>
-            
-            <tag> Git </tag>
             
         </tags>
       
@@ -174,9 +201,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> 3-hexo </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       
@@ -203,9 +230,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> 3-hexo </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       
@@ -232,9 +259,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> 3-hexo </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       

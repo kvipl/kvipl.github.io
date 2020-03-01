@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>3-hexo支持mermaid图表 | kvipl</title>
-  <meta name="keywords" content=" 3-hexo , hexo ">
-  <meta name="description" content="3-hexo支持mermaid图表 | kvipl">
+  <title>Git之SSH与HTTPS免密码配置 | kvipl</title>
+  <meta name="keywords" content=" Git ">
+  <meta name="description" content="Git之SSH与HTTPS免密码配置 | kvipl">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！  很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
 <meta property="og:type" content="website">
@@ -452,9 +452,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-3-hexo-support-mermaid" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Git-SSH-HTTPS-verify-configuration" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">3-hexo支持mermaid图表</h1>
+        <h1 class="article-title">Git之SSH与HTTPS免密码配置</h1>
     
     <div class="article-meta">
         
@@ -464,28 +464,26 @@
             
                 <a  data-rel="工具">工具</a>/
             
-                <a  data-rel="hexo">hexo</a>
+                <a  data-rel="git">git</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color2">3-hexo</a>
-            
-            <a class="color5">hexo</a>
+            <a class="color4">Git</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-15 21:45:43'>2020-02-15 21:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-01 18:00:25'>2020-03-01 18:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:478</span>
+        <span>字数:650</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -515,7 +513,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、说明"><span class="toc-text">一、说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启"><span class="toc-text">开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、示例"><span class="toc-text">二、示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-flowchart"><span class="toc-text">1. flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Sequence-diagrams"><span class="toc-text">2.Sequence diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Class-diagrams"><span class="toc-text">3.Class diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-State-diagrams"><span class="toc-text">4.State diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Gantt-diagrams"><span class="toc-text">5.Gantt diagrams</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Pie-chart-diagrams"><span class="toc-text">6.Pie chart diagrams</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH通信协议"><span class="toc-text">SSH通信协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub版"><span class="toc-text">GitHub版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git服务器"><span class="toc-text">Git服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPS通信协议"><span class="toc-text">HTTPS通信协议</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -531,124 +529,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2020/02/15/3-hexo-support-mermaid/image.jpg" alt="风铃"></p>
-<blockquote>
-<p>转自<a href="https://yelog.org/2019/11/12/3-hexo-support-mermaid/" target="_blank" rel="noopener">https://yelog.org/2019/11/12/3-hexo-support-mermaid/</a></p>
+        <blockquote>
+<p>转自<a href="https://yelog.org/2016/12/21/Git-SSH-HTTPS-verify-configuration/" target="_blank" rel="noopener">叶落阁</a></p>
 </blockquote>
-<h2 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h2><h3 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h3><ol>
-<li>安装hexo插件<pre><code class="bash">npm install hexo-filter-mermaid-diagrams</code></pre>
-</li>
-<li>修改<code>themes/3-hexo/_config.yml</code> 的 <code>mermaid.on</code>，开启主题支持<pre><code class="yml"># Mermaid 支持
-mermaid:
-on: true
-cdn: //cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js
-#cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.3.1/mermaid.min.js
-options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidAPI
- theme: &#39;default&#39;
- startOnLoad: true
- flowchart:
-   useMaxWidth: false
-   htmlLabels: true</code></pre>
-</li>
-<li>在markdown中，像写代码块一样写图表<br><img src="//img.saodiyang.com/FuBTJvG5xIOIcKZPnO9UX5GCwthK.png" alt></li>
-</ol>
-<h2 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h2><p>以下示例源码可以在这边查看 <a href="https://github.com/yelog/blog/blob/master/source/_posts/tools/3-hexo%E6%94%AF%E6%8C%81mermaid%E5%9B%BE%E8%A1%A8.md" target="_blank" rel="noopener">本文源码</a><br>更多示例可以查看官网：<a href="https://mermaidjs.github.io" target="_blank" rel="noopener">https://mermaidjs.github.io</a></p>
-<h3 id="1-flowchart"><a href="#1-flowchart" class="headerlink" title="1. flowchart"></a>1. flowchart</h3><pre><code class="mermaid">graph TD;
-    A--&gt;B;
-    A--&gt;C;
-    B--&gt;D;
-    C--&gt;D;</code></pre>
-<pre><code class="mermaid">graph TB
-    c1--&gt;a2
-    subgraph one
-    a1--&gt;a2
-    end
-    subgraph two
-    b1--&gt;b2
-    end
-    subgraph three
-    c1--&gt;c2
-    end</code></pre>
-<h3 id="2-Sequence-diagrams"><a href="#2-Sequence-diagrams" class="headerlink" title="2.Sequence diagrams"></a>2.Sequence diagrams</h3><pre><code class="mermaid">sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
-    loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts &lt;br/&gt;prevail!
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!</code></pre>
-<h3 id="3-Class-diagrams"><a href="#3-Class-diagrams" class="headerlink" title="3.Class diagrams"></a>3.Class diagrams</h3><pre><code class="mermaid">classDiagram
-     Animal &lt;|-- Duck
-     Animal &lt;|-- Fish
-     Animal &lt;|-- Zebra
-     Animal : +int age
-     Animal : +String gender
-     Animal: +isMammal()
-     Animal: +mate()
-     class Duck{
-         +String beakColor
-         +swim()
-         +quack()
-     }
-     class Fish{
-         -int sizeInFeet
-         -canEat()
-     }
-     class Zebra{
-         +bool is_wild
-         +run()
-     }</code></pre>
-<h3 id="4-State-diagrams"><a href="#4-State-diagrams" class="headerlink" title="4.State diagrams"></a>4.State diagrams</h3><pre><code class="mermaid">stateDiagram
-       [*] --&gt; Active
-
-       state Active {
-           [*] --&gt; NumLockOff
-           NumLockOff --&gt; NumLockOn : EvNumLockPressed
-           NumLockOn --&gt; NumLockOff : EvNumLockPressed
-           --
-           [*] --&gt; CapsLockOff
-           CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
-           CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
-           --
-           [*] --&gt; ScrollLockOff
-           ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
-           ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
-       }
-</code></pre>
-<h3 id="5-Gantt-diagrams"><a href="#5-Gantt-diagrams" class="headerlink" title="5.Gantt diagrams"></a>5.Gantt diagrams</h3><pre><code class="mermaid">gantt
-       dateFormat  YYYY-MM-DD
-       title Adding GANTT diagram functionality to mermaid
-
-       section A section
-       Completed task            :done,    des1, 2014-01-06,2014-01-08
-       Active task               :active,  des2, 2014-01-09, 3d
-       Future task               :         des3, after des2, 5d
-       Future task2              :         des4, after des3, 5d
-
-       section Critical tasks
-       Completed task in the critical line :crit, done, 2014-01-06,24h
-       Implement parser and jison          :crit, done, after des1, 2d
-       Create tests for parser             :crit, active, 3d
-       Future task in critical line        :crit, 5d
-       Create tests for renderer           :2d
-       Add to mermaid                      :1d
-
-       section Documentation
-       Describe gantt syntax               :active, a1, after des1, 3d
-       Add gantt diagram to demo page      :after a1  , 20h
-       Add another diagram to demo page    :doc1, after a1  , 48h
-
-       section Last section
-       Describe gantt syntax               :after doc1, 3d
-       Add gantt diagram to demo page      :20h
-       Add another diagram to demo page    :48h</code></pre>
-<h3 id="6-Pie-chart-diagrams"><a href="#6-Pie-chart-diagrams" class="headerlink" title="6.Pie chart diagrams"></a>6.Pie chart diagrams</h3><pre><code class="mermaid">pie
-    &quot;Dogs&quot; : 386
-    &quot;Cats&quot; : 85
-    &quot;Rats&quot; : 15</code></pre>
+<p>Git作为当前最受欢迎的版本控制软件，使用是很频繁的。但每次使用git push等操作时都要输入密码，实在是挺麻烦的。本文对使用ssh与https两种通讯协议讨论一下免密码配置。<br>注：这个过程在所有操作系统上都是相似的：）</p>
+<a id="more"></a>
+<h2 id="SSH通信协议"><a href="#SSH通信协议" class="headerlink" title="SSH通信协议"></a>SSH通信协议</h2><h3 id="GitHub版"><a href="#GitHub版" class="headerlink" title="GitHub版"></a>GitHub版</h3><p>许多Git服务器都使用SSH公钥进行认证，当然也包括github。<br>首先你需要确认一下自己是否已经拥有密钥了，默认情况下，用户的 SSH 密钥存储在其 <code>~/.ssh</code> 目录下。进入该目录并列出其中内容，你变可以下快速确认自己是否已经拥有密钥：</p>
+<pre><code class="bash">$ cd ~/.ssh
+$ ls
+authorized_keys2  id_rsa       known_hosts
+config            id_rsa.pub</code></pre>
+<p>我们需要寻找一对 <code>id_rsa</code> 或 <code>id_dsa</code> 命名的文件，其中一个带 <code>.pub</code> 扩展名。 ‘.pub’文件是你的公钥，另一个则是私钥。如果没有找不到这样的文件（或者根本就没有<code>.ssh</code>目录），我们可以通过 <code>ssh-keygen</code> 程序来创建它们。</p>
+<pre><code class="bash">#邮箱可以随便填
+$ ssh-keygen -t rsa -C &quot;xx@xx.com&quot;</code></pre>
+<p>首先 <code>ssh-keygen</code> 会确认密钥的存储位置和文件名（默认是 <code>.ssh/id_rsa</code>）,然后他会要求你输入两次密钥口令，留空即可。所以一般选用默认，全部回车即可。</p>
+<p>接下来我们登陆到GitHub上，右上角小头像-&gt;Setting-&gt;SSH and GPG keys中，点击new SSH key。<br><code>Title：</code>可以随便填写，但最好起的名字能让自己知道这个公钥是哪个设备的。<br><code>Key：</code>将上面生成的<code>.pub</code>文件中的所有内容复制到这里。<br>点击下面的Add SSH key即可。<br>然后你就会发现可以免密码访问了</p>
+<h3 id="Git服务器"><a href="#Git服务器" class="headerlink" title="Git服务器"></a>Git服务器</h3><p>如果服务端是自己搭建的git服务器，生成密钥公钥对的步骤是一样的。<br>然后将生成的 <code>.pub</code> 文件内容，导入到git服务器 <code>/home/git/.ssh/authorized_keys</code> 文件内，一行一个。<br>然后你就会发现git push 不再需要密码了<br>搭建git服务器和相关免登陆的详细步骤可参考我的另一篇 </p>
+<h2 id="HTTPS通信协议"><a href="#HTTPS通信协议" class="headerlink" title="HTTPS通信协议"></a>HTTPS通信协议</h2><p>上面讲了SSH方式的免密码，接下来讲一下越来越常用的HTTPS方式的免密码<br>新建文件并保存密码</p>
+<pre><code class="bash">$ touch ~/.git-credentials
+$ vim ~/.git-credentials</code></pre>
+<p>添加内容</p>
+<pre><code class="bash">https://{username}:{passwd}@github.com</code></pre>
+<p>添加git配置</p>
+<pre><code class="bash">$ git config --global credential.helper store</code></pre>
+<p>查看～/.gitconfig文件变化</p>
+<pre><code class="xml">[credential]
+    helper = store</code></pre>
+<p>然后再尝试一下git push不再在需要密码了</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kvipl@qq.com </span>
@@ -662,12 +569,12 @@ options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidA
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>3-hexo支持mermaid图表</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">478</span></p>
+    <p><span class="copy-title">文章标题:</span>Git之SSH与HTTPS免密码配置</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">650</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="kvipl">kvipl</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-02-15, 21:45:43</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-15, 21:45:43</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/15/3-hexo-support-mermaid/" title="3-hexo支持mermaid图表">https://kvipl.github.io/2020/02/15/3-hexo-support-mermaid/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-01, 18:00:25</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-01, 18:00:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/01/Git-SSH-HTTPS-verify-configuration/" title="Git之SSH与HTTPS免密码配置">https://kvipl.github.io/2020/03/01/Git-SSH-HTTPS-verify-configuration/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -682,8 +589,8 @@ options: # 更多配置信息可以参考 https://mermaidjs.github.io/#/mermaidA
 
 <script>
     var gitment = new Gitment({
-        //id: 'https://kvipl.github.io/2020/02/15/3-hexo-support-mermaid/', // 可选。默认为 location.href
-        id: "3-hexo支持mermaid图表", //issue的标签label有长度限制！labels的最大长度限制是50个字符。
+        //id: 'https://kvipl.github.io/2020/03/01/Git-SSH-HTTPS-verify-configuration/', // 可选。默认为 location.href
+        id: "Git之SSH与HTTPS免密码配置", //issue的标签label有长度限制！labels的最大长度限制是50个字符。
         owner: 'kvipl',
         repo: 'kvipl.github.io',
         oauth: {
