@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>3-hexo配置MathJax数学公式渲染 | kvipl</title>
-  <meta name="keywords" content=" mathjax ">
-  <meta name="description" content="3-hexo配置MathJax数学公式渲染 | kvipl">
+  <title>一个客户端设置多个github账号 | kvipl</title>
+  <meta name="keywords" content=" GitHub , Git ">
+  <meta name="description" content="一个客户端设置多个github账号 | kvipl">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！  很抱歉，您所访问的地址被吃掉了！Sorry，the address you visited was eaten!">
 <meta property="og:type" content="website">
@@ -444,9 +444,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-3-hexo-mathjax" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-一个客户端设置多个github账号" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">3-hexo配置MathJax数学公式渲染</h1>
+        <h1 class="article-title">一个客户端设置多个github账号</h1>
     
     <div class="article-meta">
         
@@ -456,26 +456,28 @@
             
                 <a  data-rel="工具">工具</a>/
             
-                <a  data-rel="hexo">hexo</a>
+                <a  data-rel="git">git</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color3">mathjax</a>
+            <a class="color2">GitHub</a>
+            
+            <a class="color4">Git</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-16 17:42:58'>2020-02-16 17:42</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-01 17:34:47'>2020-03-01 17:34</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.2k</span>
+        <span>字数:915</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -505,7 +507,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#处理hexo的MarkDown渲染器与MathJax的冲突"><span class="toc-text">处理hexo的MarkDown渲染器与MathJax的冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启MathJax"><span class="toc-text">开启MathJax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MathJax公式书写"><span class="toc-text">MathJax公式书写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MathJax行内公式"><span class="toc-text">1.MathJax行内公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MathJax行间公式"><span class="toc-text">2.MathJax行间公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-MathJax公式自动编号"><span class="toc-text">3.MathJax公式自动编号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MathJax公式手动编号"><span class="toc-text">MathJax公式手动编号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-其他公式书写技巧"><span class="toc-text">4.其他公式书写技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前期工作"><span class="toc-text">前期工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH配置"><span class="toc-text">SSH配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改ssh-config文件"><span class="toc-text">修改ssh config文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在Git项目中配置账号关联"><span class="toc-text">在Git项目中配置账号关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传更改"><span class="toc-text">上传更改</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -522,101 +524,79 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>转自：<a href="https://yelog.org/2017/07/05/3-hexo-mathjax/" target="_blank" rel="noopener">https://yelog.org/2017/07/05/3-hexo-mathjax/</a></p>
+<p>转自<a href="https://yelog.org/2016/09/30/computer-mutiple-github-account/" target="_blank" rel="noopener">叶落阁</a></p>
 </blockquote>
-<hr>
-在用 markdown 写文档时，免不了碰到数学公式。
+<p>最近想要使用自己的GitHub搭建Hexo博客，同时还要使用工作的GitHub开发项目，所以在网上找寻了一些文章，在此将自己的搭建过程记录一下。</p>
+<a id="more"></a>
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><p>两个GitHub账号（假设两个账号为one,two）<br>取消Git全局设置</p>
+<pre><code class="bash">$ git config --global --unset user.name
+$ git config --global --unset user.email</code></pre>
+<h2 id="SSH配置"><a href="#SSH配置" class="headerlink" title="SSH配置"></a>SSH配置</h2><p>生成<code>id_rsa</code>私钥，<code>id_rsa.pub</code>公钥。one可以直接回车，默认生成 id_rsa 和 id_rsa.pub 。</p>
+<pre><code class="bash">$ ssh-keygen -t rsa -C &quot;one@xx.com&quot;</code></pre>
+<p>添加two会出现提示输入文件名，输入与默认配置不一样的文件名，如：id_rsa_two。</p>
+<pre><code class="bash">$ cd ~/.ssh
+$ ssh-keygen -t rsa -C &quot;two@126.com&quot;  #  之后会提示输入文件名</code></pre>
+<p>GitHub添加公钥 id_rsa.pub 、 id_rsa_two.pub，分别登陆one,two的账号，在 Account Settings 的 SSH Keys 里，点 <code>Add SSH Keys</code> ，将公钥(.pub文件)中的内容粘贴到 Key 中，并输入 Title。<br>添加 ssh Key</p>
+<pre><code class="bash">$ ssh-add ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa_two</code></pre>
+<p>可以在添加前使用下面命令删除所有的 key</p>
+<pre><code class="bash">$ ssh-add -D</code></pre>
+<p>最后可以通过下面命令，查看 key 的设置</p>
+<pre><code class="bash">$ ssh-add -l</code></pre>
+<h2 id="修改ssh-config文件"><a href="#修改ssh-config文件" class="headerlink" title="修改ssh config文件"></a>修改ssh config文件</h2><pre><code class="bash">$ cd ~/.ssh/
+$ touch config</code></pre>
+<p>打开 .ssh 文件夹下的 <code>config</code> 文件，进行配置</p>
+<pre><code class="yml">#  default
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa
 
-<h2 id="处理hexo的MarkDown渲染器与MathJax的冲突"><a href="#处理hexo的MarkDown渲染器与MathJax的冲突" class="headerlink" title="处理hexo的MarkDown渲染器与MathJax的冲突"></a>处理hexo的MarkDown渲染器与MathJax的冲突</h2><p>由于hexo的MarkDown渲染器与MathJax有冲突，所以在使用之前需要修改两个地方。</p>
-<p>编辑 <code>node_modules\marked\lib\marked.js</code> 脚本</p>
-<ol>
-<li>将451行 ，这一步取消了对 <code>\\,\{,\}</code> 的转义(escape)<pre><code class="js">escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,
-改为
-escape: /^\\([`*\[\]()# +\-.!_&gt;])/,</code></pre>
-</li>
-<li>将459行，这一步取消了对斜体标记 <code>_</code> 的转义<pre><code class="js">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-改为
-em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre>
-</li>
-</ol>
-<h2 id="开启MathJax"><a href="#开启MathJax" class="headerlink" title="开启MathJax"></a>开启MathJax</h2><p>修改 <code>3-hexo/_config.yml</code></p>
-<pre><code class="xml"># MathJax 数学公式支持
-mathjax:
-  on: true #是否启用
-  per_page: false # 若只渲染单个页面，此选项设为false，页面内加入 mathjax: true</code></pre>
-<p>考虑到页面的加载速度，支持渲染单个页面。</p>
-<p>设置 <code>per_page: false</code> ,在需要渲染的页面内 加入 <code>mathjax: true</code></p>
-<p>这样，就可以在页面内写MathJax公式了。</p>
-<h2 id="MathJax公式书写"><a href="#MathJax公式书写" class="headerlink" title="MathJax公式书写"></a>MathJax公式书写</h2><p>公式书写依然按照MarkDown语法来，基本上也和LaTeX相同，单 <code>$</code> 符引住的是行内公式，双$符引住的是行间公式。</p>
+#  two
+Host two.github.com  #  前缀名可以任意设置
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_two</code></pre>
 <ul>
-<li>MathJax公式书写参考<br><a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax basic tutorial and quick reference</a></li>
+<li>这里必须采用这样的方式设置，否则 push 时会出现以下错误:</li>
 </ul>
-<h3 id="1-MathJax行内公式"><a href="#1-MathJax行内公式" class="headerlink" title="1.MathJax行内公式"></a>1.MathJax行内公式</h3><p>含有下划线 <code>_</code> 的公式 <code>$x_mu$</code> ： $x_mu$</p>
-<p>希腊字符 <code>$\sigma$</code> ： $\sigma$</p>
-<p>双 <code>\\</code> 公式内换行</p>
-<pre><code class="js">$$
-f(n) =
-\begin{cases}
-n/2,  &amp; \text{if $n$ is even} \\
-3n+1, &amp; \text{if $n$ is odd}
-\end{cases}
-$$</code></pre>
-<p>$$<br>f(n) =<br>\begin{cases}<br>n/2,  &amp; \text{if $n$ is even} \<br>3n+1, &amp; \text{if $n$ is odd}<br>\end{cases}<br>$$</p>
-<p>行内公式 <code>$y=ax+b$</code>：$y=ax+b$</p>
-<p>行内公式 <code>$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$</code>：$\cos 2\theta = \cos^2 \theta - \sin^2 \theta = 2 \cos^2 \theta$</p>
-<p>行内公式 <code>$M(\beta^{\ast}(D),D) \subseteq C$</code> ： $M(\beta^{\ast}(D),D) \subseteq C$</p>
-<h3 id="2-MathJax行间公式"><a href="#2-MathJax行间公式" class="headerlink" title="2.MathJax行间公式"></a>2.MathJax行间公式</h3><p>行间公式<code>$$ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} $$</code>：<br>$$ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} $$</p>
-<p>行间公式<code>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</code>：<br>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<h3 id="3-MathJax公式自动编号"><a href="#3-MathJax公式自动编号" class="headerlink" title="3.MathJax公式自动编号"></a>3.MathJax公式自动编号</h3><p>书写时使用</p>
-<pre><code>$$
-\begin{equation}
-\end{equation}
-$$</code></pre><p>进行公式自动编号，同时会自动连续编号，例如：</p>
-<pre><code class="xml">$$
-\begin{equation}
-\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )
-\end{equation}
-$$
-$$
-\begin{equation}
-\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))
-\end{equation}
-$$</code></pre>
-<p>$$<br>\begin{equation}<br>\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 )<br>\end{equation}<br>$$<br>$$<br>\begin{equation}<br>\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i))<br>\end{equation}<br>$$</p>
-<h2 id="MathJax公式手动编号"><a href="#MathJax公式手动编号" class="headerlink" title="MathJax公式手动编号"></a>MathJax公式手动编号</h2><p>可以在公式书写时使用 <code>\tag{手动编号}</code> 添加手动编号，例如：</p>
-<pre><code>$$
-\begin{equation}
-\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 ) \tag{1.2.3}
-\end{equation}
-$$</code></pre><p>$$<br>\begin{equation}<br>\sum_{i=0}^n F_i \cdot \phi (H, p_i) - \sum_{i=1}^n a_i \cdot ( \tilde{x_i}, \tilde{y_i}) + b_i \cdot ( \tilde{x_i}^2 , \tilde{y_i}^2 ) \tag{1.2.3}<br>\end{equation}<br>$$</p>
-<p>不加 <code>\begin{equation} \end{equation}</code> 也可以，例如：</p>
-<pre><code>$$
-\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i)) \tag{我的公式3}
-$$</code></pre><p>$$<br>\beta^*(D) = \mathop{argmin} \limits_{\beta} \lambda {||\beta||}^2 + \sum_{i=1}^n max(0, 1 - y_i f_{\beta}(x_i)) \tag{我的公式3}<br>$$</p>
-<p>行内公式加\tag{}后会自动成为行间公式，例如： <code>$z = (p_0, ..... , p_n) \tag{公式21} $</code><br>$z = (p_0, ….. , p_n) \tag{公式21} $</p>
-<h3 id="4-其他公式书写技巧"><a href="#4-其他公式书写技巧" class="headerlink" title="4.其他公式书写技巧"></a>4.其他公式书写技巧</h3><p><strong>如何将下标放到正下方？</strong><br>① 如果是数学符号，那么直接用 <code>\limits</code> 命令放在正下方，如Max函数下面的取值范围，需要放在Max的正下方。可以如下实现：<br><code>$ \max \limits_{a&lt;x&lt;b}\{f(x)\} $</code><br>$ \max \limits_{a&lt;x&lt;b}{f(x)} $</p>
-<p>② 若是普通符号，那么要用 <code>\mathop</code> 先转成数学符号再用 <code>\limits</code>，如<br><code>$ \mathop{a}\limits_{i=1} $</code><br>$ \mathop{a}\limits_{i=1} $</p>
-<p><strong>MathJax矩阵输入</strong><br>无括号矩阵：</p>
-<pre><code>$$
-\begin{matrix}
-1 &amp; x &amp; x^2 \\
-1 &amp; y &amp; y^2 \\
-1 &amp; z &amp; z^2 \\
-\end{matrix}
-$$</code></pre><p>$$<br>\begin{matrix}<br>1 &amp; x &amp; x^2 \<br>1 &amp; y &amp; y^2 \<br>1 &amp; z &amp; z^2 \<br>\end{matrix}<br>$$</p>
-<p>有括号有竖线矩阵：</p>
-<pre><code>$$
-\left[
-    \begin{array}{cc|c}
-      1&amp;2&amp;3\\
-      4&amp;5&amp;6
-    \end{array}
-\right]
-$$</code></pre><p>$$<br>\left[<br>    \begin{array}{cc|c}<br>      1&amp;2&amp;3\<br>      4&amp;5&amp;6<br>    \end{array}<br>\right]<br>$$</p>
-<p>行内小矩阵：<br><code>$\bigl( \begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix} \bigr)$</code><br>$\bigl( \begin{smallmatrix} a &amp; b \ c &amp; d \end{smallmatrix} \bigr)$</p>
-<p>这里有个问题，上面的写法在矩阵内没有换行，我看了下源码，双反斜杠\又被MarkDown渲染引擎转义为单个反斜杠了，解决方法是写三个反斜杠\\或在双反斜杠后换行即可：</p>
-<p><code>$\bigl( \begin{smallmatrix} a &amp; b \\\ c &amp; d \end{smallmatrix} \bigr)$</code><br>$\bigl( \begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix} \bigr)$</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://masikkk.com/article/hexo-13-MathJax/" target="_blank" rel="noopener">Hexo博客(13)添加MathJax数学公式渲染</a><br><a href="http://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">在Hexo中渲染MathJax数学公式</a><br><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax basic tutorial and quick reference</a></p>
+<blockquote>
+<p>ERROR: Permission to two/two.github.com.git denied to one.</p>
+</blockquote>
+<p>简单分析下原因，我们可以发现 ssh 客户端是通过类似:</p>
+<pre><code class="bash">git@github.com:one/one.github.com.git</code></pre>
+<p>这样的 Git 地址中的 User 和 Host 来识别使用哪个本地私钥的。<br>很明显，如果 User 和 Host 始终为 git 和 github.com，那么就只能使用一个私钥。<br>所以需要上面的方式配置，每个账号使用了自己的 Host，每个 Host 的域名做 CNAME 解析到 github.com，这样 ssh 在连接时就可以区别不同的账号了。</p>
+<pre><code class="bash">$ ssh -T git@github.com        #  测试one ssh连接
+# Hi ***! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+$ ssh -T git@two.github.com    #  测试two ssh连接
+# Hi ***! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre>
+<p>但是这样还没有完，下面还有关联的设置。</p>
+<h2 id="在Git项目中配置账号关联"><a href="#在Git项目中配置账号关联" class="headerlink" title="在Git项目中配置账号关联"></a>在Git项目中配置账号关联</h2><p>可以用 <code>git init</code> 或者 <code>git clone</code> 创建本地项目<br>分别在one和two的git项目目录下，使用下面的命令设置名字和邮箱</p>
+<pre><code class="bash">$ git config user.name &quot;__name__&quot;            #  __name__ 例如 one
+$ git config user.email &quot;__email__&quot;          #  __email__ 例如 one@126.com</code></pre>
+<p>注意：由于我不知道Hexo怎样配置 局部的config，所以，我将two的config使用全局，而工作目录配置局部。</p>
+<pre><code class="bash">$ git config --global user.name &quot;__name__&quot;            #  __name__ 例如 two
+$ git config --global user.email &quot;__email__&quot;          #  __email__ 例如 two@126.com</code></pre>
+<p>查看git项目的配置</p>
+<pre><code class="bash">$ git config --list</code></pre>
+<p>查看 one 的 remote.origin.url=git@github.com:one/one.github.com.git<br>查看 two 的 remote.origin.url=git@github.com:two/two.github.com.git<br>由于 one 使用的是默认的 Host ，所以不需要修改，但是 two 使用的是 two.github.com ，则需要进行修改</p>
+<pre><code class="bash">$ git remote rm origin
+$ git remote add origin git@two.github.com:two/two.github.com.git</code></pre>
+<p>我在Hexo中的配置（使用two账号）</p>
+<pre><code class="yml">deploy:
+    type: git
+    repo: git@two.github.com:two/two.github.io.git
+    branch: master</code></pre>
+<h2 id="上传更改"><a href="#上传更改" class="headerlink" title="上传更改"></a>上传更改</h2><p>上面所有的设置无误后，可以修改代码，然后上传了。</p>
+<pre><code class="bash">$ git add -A
+$ git commit -m &quot;your comments&quot;
+$ git push</code></pre>
+<p>如果遇到warning</p>
+<blockquote>
+<p>warning: push.default is unset; its implicit value is changing in Git 2.0 from ‘matching’ to ‘simple’. To squelch this messageand maintain the current behavior after the default changes, use…</p>
+</blockquote>
+<p>推荐使用</p>
+<pre><code class="bash">$ git config --global push.default simple</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 kvipl@qq.com </span>
@@ -630,12 +610,12 @@ $$</code></pre><p>$$<br>\left[<br>    \begin{array}{cc|c}<br>      1&amp;2&amp;3
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>3-hexo配置MathJax数学公式渲染</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
+    <p><span class="copy-title">文章标题:</span>一个客户端设置多个github账号</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">915</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="kvipl">kvipl</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-02-16, 17:42:58</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-16, 17:42:58</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/16/3-hexo-mathjax/" title="3-hexo配置MathJax数学公式渲染">https://kvipl.github.io/2020/02/16/3-hexo-mathjax/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-01, 17:34:47</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-01, 17:34:47</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/01/%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/" title="一个客户端设置多个github账号">https://kvipl.github.io/2020/03/01/%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -650,8 +630,8 @@ $$</code></pre><p>$$<br>\left[<br>    \begin{array}{cc|c}<br>      1&amp;2&amp;3
 
 <script>
     var gitment = new Gitment({
-        //id: 'https://kvipl.github.io/2020/02/16/3-hexo-mathjax/', // 可选。默认为 location.href
-        id: "3-hexo配置MathJax数学公式渲染", //issue的标签label有长度限制！labels的最大长度限制是50个字符。
+        //id: 'https://kvipl.github.io/2020/03/01/%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/', // 可选。默认为 location.href
+        id: "一个客户端设置多个github账号", //issue的标签label有长度限制！labels的最大长度限制是50个字符。
         owner: 'kvipl',
         repo: 'kvipl.github.io',
         oauth: {
@@ -665,46 +645,6 @@ $$</code></pre><p>$$<br>\left[<br>    \begin{array}{cc|c}<br>      1&amp;2&amp;3
 
 
 
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-        src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<input type="hidden" id="MathJax-js"
-        value="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-</input>
     
 
 
